@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal bomb_created(player)
 
 var bomb_timer_start
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("bomb"):
 		power_bar.visible = true
 		bomb_timer_start = Time.get_ticks_msec()
@@ -19,7 +19,8 @@ func _process(delta):
 	if Input.is_action_just_released("bomb"):
 		power_bar.visible = false
 		var now = Time.get_ticks_msec()
-		bomb_created.emit(self, now - bomb_timer_start)
+		var power = (now - bomb_timer_start) * (-1 if velocity.x < 0 else 1)
+		bomb_created.emit(self, power)
 	
 func _physics_process(delta):
 	if velocity.x > 0 || velocity.x < 0:

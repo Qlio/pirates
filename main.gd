@@ -5,6 +5,7 @@ const Bomb = preload("res://scenes/bomb.tscn")
 func create_bomb(player: CharacterBody2D, power: float):
 	var bomb = Bomb.instantiate();
 	bomb.power = power
+	bomb.thrower = player
 	bomb.position = player.position
 	add_child(bomb)
 

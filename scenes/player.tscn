@@ -252,6 +252,8 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_nqt0l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
