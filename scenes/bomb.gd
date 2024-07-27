@@ -27,3 +27,4 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_area_2d_body_exited(body):
 	if body == thrower:
 		self.collision_mask |= 0b100 # adding collision with player
+#
